@@ -4,6 +4,11 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import { Braintree, HostedField } from "react-braintree-fields";
+const WebhooksApi = require("@octokit/webhooks");
+const webhooks = new WebhooksApi({
+  secret: "mysecret"
+});
+
 var dropin = require("braintree-web-drop-in");
 
 class App extends React.PureComponent {
@@ -13,18 +18,14 @@ class App extends React.PureComponent {
     this.state = { instance: null };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    webhooks.on("*", ({ id, name, payload }) => {
+      alert();
+      console.log(name, "event received");
+    });
+  }
 
   clickUI = () => {
-    // dropin.create(
-    //   {
-    //     authorization: "sandbox_k3zyhsxn_95csy7fyrgt8cy7c",
-    //     container: "#dropin-container"
-    //   },
-    //   (createErr, instance) => {
-    //     console.log(instance, createErr);
-    //   }
-    // );
     dropin.create(
       {
         authorization: "sandbox_k3zyhsxn_95csy7fyrgt8cy7c",
