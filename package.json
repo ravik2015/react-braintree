@@ -1,0 +1,18 @@
+{
+  "name": "braintree_react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "braintree-web-drop-in": "^1.12.0",
+    "react": "^16.4.2",
+    "react-braintree-fields": "^1.1.0",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
